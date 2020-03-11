@@ -23,10 +23,10 @@ jobs:
     - name: Get dependencies
       run: |
         gofmt -w .
-        git config --global user.email "cicd@a.b"
-        git config --global user.name "cicd"
-        git commit -a -m"Format code in action"
-        git push origin master
+        # git config --global user.email "cicd@a.b"
+        # git config --global user.name "cicd"
+        # git commit -a -m"Format code in action"
 
-    - name: Build
-      run: go build -v .
+    - uses: mikeal/publish-to-github-action@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
