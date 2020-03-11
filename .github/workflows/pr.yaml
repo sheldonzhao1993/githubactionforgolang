@@ -24,12 +24,14 @@ jobs:
 
     - name: format code
       run: |
-        gofmt -w .
-        git config user.name "Automated Publisher"
-        git config user.email "actions@users.noreply.github.com"
-        git commit -a -m"Format code in action"
+        echo "echo"
+        # gofmt -w .
+        # git config user.name "Automated Publisher"
+        # git config user.email "actions@users.noreply.github.com"
+        # git commit -a -m"Format code in action"
+        # Build ignored directories
 
-    - name: Automatic Rebase
-      uses: cirrus-actions/rebase@1.2
+    - name: format code and add comment
+      uses: sjkaliski/go-github-actions/fmt@v0.5.0
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
