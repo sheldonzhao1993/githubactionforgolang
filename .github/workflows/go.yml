@@ -27,7 +27,8 @@ jobs:
         # git config --global user.email "cicd@a.b"
         # git config --global user.name "cicd"
         # git commit -a -m"Format code in action"
-        cat $HOME/workflow/event.json
+        # cat $HOME/workflow/event.json
+        ls
 
     - uses: mikeal/publish-to-github-action@master
       env:
