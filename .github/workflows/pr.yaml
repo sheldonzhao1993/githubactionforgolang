@@ -1,8 +1,9 @@
-name: Go
+name: pr
 
 on:
-  push:
-    branches: [ master ]
+  pull_request:
+    branches:
+      - master
 
 
 jobs:
@@ -21,13 +22,14 @@ jobs:
     - name: Check out code into the Go module directory
       uses: actions/checkout@v1
 
-    - name: Get dependencies
+    - name: format code
       run: |
         gofmt -w .
-        # git config --global user.email "cicd@a.b"
-        # git config --global user.name "cicd"
-        # git commit -a -m"Format code in action"
+        git config user.name "Automated Publisher"
+        git config user.email "actions@users.noreply.github.com"
+        git commit -a -m"Format code in action"
 
-    - uses: mikeal/publish-to-github-action@master
+    - name: Automatic Rebase
+      uses: cirrus-actions/rebase@1.2
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
