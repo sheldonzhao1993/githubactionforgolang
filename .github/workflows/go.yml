@@ -23,7 +23,7 @@ jobs:
     - name: Get dependencies
       run: |
         gofmt -w .
-        git comit -a -m"Format code in action"
+        git commit -a -m"Format code in action"
         
 
     - name: Build
