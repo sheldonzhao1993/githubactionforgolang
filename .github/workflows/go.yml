@@ -21,14 +21,14 @@ jobs:
     - name: Check out code into the Go module directory
       uses: actions/checkout@v1
 
-    - name: Get dependencies
+    - name: command
       run: |
         gofmt -w .
         # git config --global user.email "cicd@a.b"
         # git config --global user.name "cicd"
         # git commit -a -m"Format code in action"
         # cat $HOME/workflow/event.json
-        ls
+        cat $GITHUB_EVENT_PATH
 
     - uses: mikeal/publish-to-github-action@master
       env:
