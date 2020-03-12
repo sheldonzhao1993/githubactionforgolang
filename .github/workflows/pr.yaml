@@ -34,6 +34,6 @@ jobs:
 
     - name: format code and add comment
       # uses: sjkaliski/go-github-actions/fmt@v0.5.0
-      uses: rongyi/autogofmt@v2.0
+      uses: rongyi/autogofmt@v2.1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
