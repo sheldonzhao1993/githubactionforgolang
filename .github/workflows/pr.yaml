@@ -30,9 +30,10 @@ jobs:
         # git config user.email "actions@users.noreply.github.com"
         # git commit -a -m"Format code in action"
         # Build ignored directories
-        cat /github/workflow/event.json
+        cat $GITHUB_EVENT_PATH
 
     - name: format code and add comment
-      uses: sjkaliski/go-github-actions/fmt@v0.5.0
+      # uses: sjkaliski/go-github-actions/fmt@v0.5.0
+      uses: rongyi/gofmtry@v1.0
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
